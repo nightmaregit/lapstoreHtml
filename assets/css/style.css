@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400&display=swap');
+
+:root {
+    --primary-color: #111111;
+    --secondary-bg: #F8F9FA;
+    --accent-color: #007BFF;
+    --accent-hover: #0056b3;
+    --text-color: #333333;
+    --success-color: #28A745;
+    --card-bg: #FFFFFF;
+    --whatsapp-color: #25D366;
+    
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --font-weight-bold: 700;
+    --font-weight-semibold: 600;
+    --font-weight-regular: 400;
+    --line-height-body: 1.6;
+
+    --border-radius: 8px;
+    --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --transition-duration: 0.3s;
+    --max-content-width: 1140px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--secondary-bg);
+    line-height: var(--line-height-body);
+    padding-top: 70px; /* Supaya konten tidak ketutup navbar fixed */
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+}
+
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- COMPONENTS --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    transition: all var(--transition-duration) ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp-color);
+    color: var(--card-bg);
+}
+
+.btn:hover {
+    filter: brightness(0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+}
+
+/* --- NAVBAR --- */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    z-index: 1000;
+    height: 70px; /* Tinggi pasti navbar */
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-menu a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-semibold);
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.logo {
+    mix-blend-mode: multiply;
+}
+
+/* --- SECTIONS & CARDS --- */
+.hero-section {
+    padding: 60px 0;
+}
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.service-card, .product-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+}
+
+.service-card:hover, .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-card i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.service-grid, .product-grid, .portfolio-grid {
+    display: grid;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.service-grid { grid-template-columns: repeat(3, 1fr); }
+.product-grid { grid-template-columns: repeat(4, 1fr); }
+.portfolio-grid { grid-template-columns: repeat(2, 1fr); align-items: start; }
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: var(--font-weight-semibold);
+    font-size: 0.8rem;
+    color: var(--card-bg);
+}
+
+.badge-done { background-color: var(--success-color); }
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.product-info { padding: 15px; }
+
+.price {
+    color: var(--accent-color);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.3rem;
+    display: block;
+    margin: 10px 0;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: white;
+}
+.status-ready { background-color: var(--success-color); }
+.status-sold { background-color: red; }
+
+/* --- FOOTER GLOBAL (Berlaku untuk semua layar) --- */
+footer#kontak {
+    background-color: #111111;
+    color: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007BFF;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-col p {
+    color: #ccc;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-col.maps iframe {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(255,255,255,0.1);
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #007BFF;
+    transform: translateY(-3px);
+}
+
+.copyright-bar {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVE) --- */
+
+/* Tablet */
+@media (max-width: 1023px) {
+    .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Mobile (HP) */
+@media (max-width: 767px) {
+    .container { padding: 0 16px; }
+
+    /* MENU MOBILE (PENTING: Tambahan agar menu muncul) */
+    .hamburger-menu { display: block; }
+    
+    .nav-menu {
+        display: none; /* Default sembunyi */
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    /* Saat JS menambahkan class 'active', menu muncul */
+    .nav-menu.active {
+        display: flex; 
+    }
+
+    .nav-menu a {
+        margin: 10px 0;
+        display: block;
+    }
+
+    .hero-content { flex-direction: column; text-align: center; }
+    .service-grid, .product-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    
+    .footer-content { flex-direction: column; }
+    .footer-col { text-align: center; margin-bottom: 20px; }
+}
