@@ -81,6 +81,14 @@ h1, h2, h3, h4 {
     font-weight: var(--font-weight-bold);
 }
 
+.service-section{
+    padding-bottom: 40px;
+}
+
+.portfolio-section{
+    padding-bottom: 40px;
+}
+
 /* --- NAVBAR --- */
 #navbar {
     position: fixed;
